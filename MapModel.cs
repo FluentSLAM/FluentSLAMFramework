@@ -1,6 +1,6 @@
 ﻿namespace FluentSLAM
 {
-    public class Map
+    public abstract class MapModel
     {
     }
 }

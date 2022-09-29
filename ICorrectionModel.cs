@@ -2,6 +2,6 @@
 {
     public interface ICorrectionModel
     {
-        public void Apply(Map map, object data);
+        public void Apply(MapModel map, object data);
     }
 }
