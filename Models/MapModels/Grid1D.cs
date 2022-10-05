@@ -1,4 +1,4 @@
-﻿namespace FluentSLAM.Models.MapModels
+﻿namespace FluentSLAM.MapModels
 {
 	public class Grid1D<TCell> : MapModel
 	{
