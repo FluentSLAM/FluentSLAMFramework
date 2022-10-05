@@ -9,8 +9,14 @@
 
   <ItemGroup>
     <None Remove="FluentModel\" />
+    <None Remove="Models\" />
+    <None Remove="Models\MapModels\" />
+    <None Remove="Models\MobileObjectModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FluentModel\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\MapModels\" />
+    <Folder Include="Models\MobileObjectModels\" />
   </ItemGroup>
 </Project>
