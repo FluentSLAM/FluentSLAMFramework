@@ -7,4 +7,10 @@
     <AssemblyName>FluentSLAM</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="FluentModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FluentModel\" />
+  </ItemGroup>
 </Project>

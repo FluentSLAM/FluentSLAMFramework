@@ -22,12 +22,11 @@ public abstract class FluentModel
 
     public virtual FluentModel Initialize<TInitModel>()
     {
+
         return this;
     }
 
-    public virtual FluentModel
-        Predict<TPredictionModel>(TPredictionModel model, object data)
-        where TPredictionModel : IPredictionModel
+    public virtual FluentModel Predict(IPredictionModel model, object data)
     {
         model.Apply(MobileObject, data);
         return this;
@@ -36,9 +35,7 @@ public abstract class FluentModel
     public FluentModel Predict(object data)
         => Predict(SavedPredictionModel, data);
 
-    public virtual FluentModel
-        Correct<TCorrectionModel>(TCorrectionModel model, object data)
-        where TCorrectionModel : ICorrectionModel
+    public virtual FluentModel Correct(ICorrectionModel model, object data)
     {
         model.Apply(Map, data);
         return this;
