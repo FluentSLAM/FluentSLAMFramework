@@ -12,11 +12,16 @@
     <None Remove="Models\" />
     <None Remove="Models\MapModels\" />
     <None Remove="Models\MobileObjectModels\" />
+    <None Remove="Models\MapModels\GraphModel\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FluentModel\" />
     <Folder Include="Models\" />
     <Folder Include="Models\MapModels\" />
     <Folder Include="Models\MobileObjectModels\" />
+    <Folder Include="Models\MapModels\GraphModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NGenerics" Version="1.5.3" />
   </ItemGroup>
 </Project>
