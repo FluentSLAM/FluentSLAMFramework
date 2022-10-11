@@ -1,7 +1,7 @@
 ﻿namespace FluentSLAM;
 
 
-public abstract class FluentModel
+public class FluentModel
 {
     protected dynamic CorrectionModel { get; private set; }
     protected dynamic PredictionModel { get; private set; }
