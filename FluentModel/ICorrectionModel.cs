@@ -1,7 +1,7 @@
 ﻿namespace FluentSLAM
 {
-    public interface ICorrectionModel
+    public interface ICorrectionModel<TDataEntry> where TDataEntry : struct
     {
-        public void Apply(MapModel map, DataEntity data);
+        public void Apply(MapModel map, TDataEntry data);
     }
 }

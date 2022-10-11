@@ -3,19 +3,23 @@
 
 public abstract class FluentModel
 {
-    protected ICorrectionModel CorrectionModel { get; private set; }
-    protected IPredictionModel PredictionModel { get; private set; }
+    protected dynamic CorrectionModel { get; private set; }
+    protected dynamic PredictionModel { get; private set; }
     protected MobileObjectModel MobileObject { get; private set; }
     protected MapModel Map { get; private set; }
     
 
-    public FluentModel SetCorrectionModel(ICorrectionModel correctionModel)
+    public FluentModel SetCorrectionModel<TDataEntry>(
+        ICorrectionModel<TDataEntry> correctionModel)
+        where TDataEntry : struct
     {
         CorrectionModel = correctionModel;
         return this;
     }
 
-    public FluentModel SetPredictionModel(IPredictionModel predictionModel)
+    public FluentModel SetPredictionModel<TDataEntry>(
+        IPredictionModel<TDataEntry> predictionModel)
+        where TDataEntry : struct
     {
         PredictionModel = predictionModel;
         return this;
@@ -26,21 +30,29 @@ public abstract class FluentModel
         return this;
     }
 
-    public virtual FluentModel Predict(IPredictionModel model, DataEntity data)
+    public virtual FluentModel Predict<TDataEntry>(
+        IPredictionModel<TDataEntry> model,
+        TDataEntry data)
+        where TDataEntry : struct
     {
         model.Apply(MobileObject, data);
         return this;
     }
 
-    public FluentModel Predict(DataEntity data)
+    public FluentModel Predict<TDataEntry>(TDataEntry data)
+        where TDataEntry : struct
         => Predict(PredictionModel, data);
 
-    public virtual FluentModel Correct(ICorrectionModel model, DataEntity data)
+    public virtual FluentModel Correct<TDataEntry>(
+        ICorrectionModel<TDataEntry> model,
+        TDataEntry data)
+        where TDataEntry : struct
     {
         model.Apply(Map, data);
         return this;
     }
 
-    public FluentModel Correct(DataEntity data)
+    public FluentModel Correct<TDataEntry>(TDataEntry data)
+        where TDataEntry : struct
         => Correct(CorrectionModel, data);
 }
