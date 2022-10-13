@@ -13,6 +13,7 @@
     <None Remove="Models\MapModels\" />
     <None Remove="Models\MobileObjectModels\" />
     <None Remove="Models\MapModels\GraphModel\" />
+    <None Remove="Misc\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FluentModel\" />
@@ -20,6 +21,7 @@
     <Folder Include="Models\MapModels\" />
     <Folder Include="Models\MobileObjectModels\" />
     <Folder Include="Models\MapModels\GraphModel\" />
+    <Folder Include="Misc\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GraphX" Version="3.0.0" />
