@@ -25,9 +25,6 @@ namespace FluentSLAM.Models.GraphEdgePointModel
             if (p1.Edge.Equals(p2.Edge))
                 return Math.Abs(p1.Coord - p2.Coord);
 
-            if (!IsDistanceMatrixUpdated)
-                UpdateDistanceMatrix();
-
             var v1 = p1.Edge.Source;
             var v2 = p1.Edge.Target;
             var v3 = p2.Edge.Source;

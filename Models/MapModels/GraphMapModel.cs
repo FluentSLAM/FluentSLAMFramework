@@ -75,7 +75,11 @@ namespace FluentSLAM.MapModels
         }
 
 		public double GetDistanceBetweenVertices(TVertex source, TVertex target)
-			=> _distanceMatrix[_vertexIndex[source], _vertexIndex[target]];
+		{ 
+            if (!IsDistanceMatrixUpdated)
+                UpdateDistanceMatrix();
+            return _distanceMatrix[_vertexIndex[source], _vertexIndex[target]];
+		}
 	}
 }
 
