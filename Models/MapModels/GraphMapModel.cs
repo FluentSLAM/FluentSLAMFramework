@@ -29,7 +29,14 @@ namespace FluentSLAM.MapModels
 			UpdateDistanceMatrix();
         }
 
-		public void ResetGraph()
+        public GraphMapModel(List<TEdge> edgeList, List<double> weights)
+        {
+            ResetGraph();
+            LoadEdges(edgeList, weights);
+            UpdateDistanceMatrix();
+        }
+
+        public void ResetGraph()
         {
             Graph = new TGraph();
 			IsDistanceMatrixUpdated = false;
@@ -37,12 +44,29 @@ namespace FluentSLAM.MapModels
 
 		public void LoadEdges(List<TEdge> edgeList)
 		{
-            foreach (var edge in edgeList)
-                Graph.AddVerticesAndEdge(edge);
+			_edgeWeights = new Dictionary<TEdge, double>(edgeList.Count);
+			foreach (var edge in edgeList)
+			{
+				Graph.AddVerticesAndEdge(edge);
+				_edgeWeights.Add(edge, 1);
+			}
+
 			IsDistanceMatrixUpdated = false;
         }
 
-		public void UpdateDistanceMatrix()
+        public void LoadEdges(List<TEdge> edgeList, List<double> weights)
+        {
+            _edgeWeights = new Dictionary<TEdge, double>(edgeList.Count);
+            foreach (var (edge, weight) in edgeList.Zip(weights))
+            {
+                Graph.AddVerticesAndEdge(edge);
+                _edgeWeights.Add(edge, weight);
+            }
+
+            IsDistanceMatrixUpdated = false;
+        }
+
+        public void UpdateDistanceMatrix()
 		{
 			CalculateVerticesIndex();
 			CalculateDistanceMatrix();
@@ -74,7 +98,7 @@ namespace FluentSLAM.MapModels
         }
 
 		public double GetDistanceBetweenVertices(TVertex source, TVertex target)
-		{ 
+		{
             if (!IsDistanceMatrixUpdated)
                 UpdateDistanceMatrix();
             return _distanceMatrix[_vertexIndex[source], _vertexIndex[target]];

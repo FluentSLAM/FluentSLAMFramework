@@ -4,7 +4,7 @@ using QuickGraph;
 
 namespace FluentSLAM.Models.GraphEdgePointModel
 {
-	public class GraphEdgePointModel<TVertex, TEdge, TGraph, TCoord> : GraphMapModel<TVertex, TEdge, TGraph>
+	public class GraphEdgePointModel<TVertex, TEdge, TGraph> : GraphMapModel<TVertex, TEdge, TGraph>
         where TVertex : notnull
         where TEdge : IEdge<TVertex>
         where TGraph : IUndirectedGraph<TVertex, TEdge>, IMutableVertexAndEdgeSet<TVertex, TEdge>, new()
