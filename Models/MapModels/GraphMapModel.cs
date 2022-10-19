@@ -7,33 +7,48 @@ using FluentSLAM.MapModels.GraphModel;
 
 namespace FluentSLAM.MapModels
 {
-	public class GraphMap<TVertex, TEdge> : MapModel
+	public class GraphMapModel<TVertex, TEdge, TGraph> : MapModel
 		where TVertex : notnull
 		where TEdge : IEdge<TVertex>
+		where TGraph: IUndirectedGraph<TVertex, TEdge>, IMutableVertexAndEdgeSet<TVertex, TEdge>, new()
 	{
-		public IMutableUndirectedGraph<TVertex, TEdge> Graph { get; private set; }
+		public TGraph Graph { get; private set; }
+		public bool IsDistanceMatrixUpdated { get; private set; } = false;
 
-		private Dictionary<TEdge, double> _edgeWeights = new Dictionary<TEdge, double>();
-
-
-        private Dictionary<TVertex, int> _vertexIndex;
+		protected Dictionary<TEdge, double> _edgeWeights = new Dictionary<TEdge, double>();
+		private Dictionary<TVertex, int> _vertexIndex = new Dictionary<TVertex, int>();
 		private double[,] _distanceMatrix;
 
-		public GraphMap()
+		public GraphMapModel()
 		{
-			Graph = new UndirectedGraph<TVertex, TEdge>();
+			ResetGraph();
 		}
 
-        public GraphMap(List<TEdge> edgeList)
+        public GraphMapModel(List<TEdge> edgeList)
         {
-            Graph = new UndirectedGraph<TVertex, TEdge>();
+			ResetGraph();
+            LoadEdges(edgeList);
+			UpdateDistanceMatrix();
+        }
 
-			foreach (var edge in edgeList)
-				Graph.AddVerticesAndEdge(edge);
+		public void ResetGraph()
+        {
+            Graph = new TGraph();
+			IsDistanceMatrixUpdated = false;
+        }
 
+		public void LoadEdges(List<TEdge> edgeList)
+		{
+            foreach (var edge in edgeList)
+                Graph.AddVerticesAndEdge(edge);
+			IsDistanceMatrixUpdated = false;
+        }
+
+		public void UpdateDistanceMatrix()
+		{
 			CalculateVerticesIndex();
 			CalculateDistanceMatrix();
-        }
+		}
 
 		private void CalculateVerticesIndex()
 		{
@@ -60,16 +75,7 @@ namespace FluentSLAM.MapModels
         }
 
 		public double GetDistanceBetweenVertices(TVertex source, TVertex target)
-		{
-			throw new NotImplementedException();
-		}
-
-		public double GetDistanceBetweenPoints(
-			EdgePoint<Edge<Vertex>, double> firstPoint,
-			EdgePoint<Edge<Vertex>, double> secondPoint)
-		{
-			throw new NotImplementedException();
-		}
+			=> _distanceMatrix[_vertexIndex[source], _vertexIndex[target]];
 	}
 }
 
