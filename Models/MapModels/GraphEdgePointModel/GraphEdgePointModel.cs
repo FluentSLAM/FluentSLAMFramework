@@ -1,6 +1,5 @@
 ﻿using FluentSLAM.MapModels;
 using FluentSLAM.MapModels.GraphModel;
-using NGenerics.DataStructures.General;
 using QuickGraph;
 
 namespace FluentSLAM.Models.GraphEdgePointModel

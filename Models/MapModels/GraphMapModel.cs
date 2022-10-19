@@ -3,8 +3,6 @@ using QuickGraph.Algorithms;
 using QuickGraph.Algorithms.ShortestPath;
 using FluentSLAM.Misc;
 
-using FluentSLAM.MapModels.GraphModel;
-
 namespace FluentSLAM.MapModels
 {
 	public class GraphMapModel<TVertex, TEdge, TGraph> : MapModel
@@ -48,6 +46,7 @@ namespace FluentSLAM.MapModels
 		{
 			CalculateVerticesIndex();
 			CalculateDistanceMatrix();
+			IsDistanceMatrixUpdated = true;
 		}
 
 		private void CalculateVerticesIndex()
