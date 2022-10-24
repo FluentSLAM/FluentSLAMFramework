@@ -1,6 +1,6 @@
 ﻿namespace FluentSLAM.MobileObjectModels
 {
-	public class MobileObject1D<TPoint> : MobileObjectModel
+	public class MobileObject1D<TPoint> : IMobileObjectModel
 	{
 		protected TPoint Position { get; set; }
 

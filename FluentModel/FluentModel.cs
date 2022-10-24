@@ -5,8 +5,8 @@ public class FluentModel
 {
     protected dynamic CorrectionModel { get; private set; }
     protected dynamic PredictionModel { get; private set; }
-    protected MobileObjectModel MobileObject { get; private set; }
-    protected MapModel Map { get; private set; }
+    protected IMobileObjectModel MobileObject { get; private set; }
+    protected IMapModel Map { get; private set; }
     
 
     public FluentModel SetCorrectionModel<TDataEntry>(

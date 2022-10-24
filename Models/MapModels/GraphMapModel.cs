@@ -5,7 +5,7 @@ using FluentSLAM.Misc;
 
 namespace FluentSLAM.MapModels
 {
-	public class GraphMapModel<TVertex, TEdge, TGraph> : MapModel
+	public class GraphMapModel<TVertex, TEdge, TGraph> : IMapModel
 		where TVertex : notnull
 		where TEdge : IEdge<TVertex>
 		where TGraph: IUndirectedGraph<TVertex, TEdge>, IMutableVertexAndEdgeSet<TVertex, TEdge>, new()

@@ -2,6 +2,6 @@
 {
     public interface IPredictionModel<TDataEntry> where TDataEntry : struct
     {
-        public void Apply(MobileObjectModel mobileObject, TDataEntry data);
+        public void Apply(IMobileObjectModel mobileObject, TDataEntry data);
     }
 }

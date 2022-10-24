@@ -1,6 +1,6 @@
 ﻿namespace FluentSLAM
 {
-    public abstract class MapModel
+    public interface IMapModel
     {
     }
 }
