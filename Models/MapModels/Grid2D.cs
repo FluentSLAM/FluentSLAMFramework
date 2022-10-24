@@ -1,6 +1,6 @@
 ﻿namespace FluentSLAM.MapModels
 {
-	public class Grid2D<TCell> : MapModel
+	public class Grid2D<TCell> : IMapModel
     {
         protected TCell[,] Cells { get; private set; }
 

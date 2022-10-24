@@ -1,12 +1,24 @@
 ﻿namespace FluentSLAM.MapModels
 {
-	public class Grid1D<TCell> : MapModel
+	public class Grid1D<TCell> : IMapModel
 	{
-		protected TCell[] Cells { get; private set; }
+		protected TCell[] _cells;
+
+		public TCell this[int i]
+		{
+			get
+			{
+				return _cells[i];
+			}
+			set
+			{
+				_cells[i] = value;
+			}
+		}
 
 		public Grid1D(int size)
 		{
-			Cells = new TCell[size];
+			_cells = new TCell[size];
 		}
 	}
 }
