@@ -4,7 +4,7 @@
 	{
 		protected TCell[] _cells;
 
-		public TCell this[int i]
+		public virtual TCell this[int i]
 		{
 			get
 			{
