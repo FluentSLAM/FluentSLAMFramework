@@ -1,8 +1,17 @@
-﻿namespace FluentSLAM.MapModels
+﻿using System.Collections;
+
+namespace FluentSLAM.MapModels
 {
 	public class Grid1D<TCell> : IMapModel
 	{
 		protected TCell[] _cells;
+
+		public int Length {
+			get
+			{
+				return _cells.Length;
+			}
+		}
 
 		public virtual TCell this[int i]
 		{
@@ -20,6 +29,6 @@
 		{
 			_cells = new TCell[size];
 		}
-	}
+    }
 }
 
