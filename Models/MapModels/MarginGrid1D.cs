@@ -28,23 +28,39 @@
 			Margin = margin;
 		}
 
+		public bool Copy(Grid1D<TCell> cells)
+		{
+			Margin = cells.Length;
+			var resized = false;
+
+            if (Margin > _cells.Length)
+            {
+				_cells = new TCell[cells.Length];
+				resized = true;
+            }
+
+			for (var i = 0; i < cells.Length; i++)
+				_cells[i] = cells[i];
+			return resized;
+		}
+
 		public bool Resize(int newMargin)
 		{
 			if (newMargin < 0)
 				throw new IndexOutOfRangeException("Margin should be 0 or greater.");
 
-			if (newMargin == Margin)
-				return false;
-
             Margin = newMargin;
 
-            if (newMargin < Margin)
-				return false;
+			if (newMargin > _cells.Length)
+			{
+				var newCells = new TCell[Margin];
+				for (var i = 0; i < _cells.Length; i++)
+					newCells[i] = _cells[i];
+				_cells = newCells;
+                return true;
+            }
 
-			var newCells = new TCell[Margin];
-			for (var i = 1; i < _cells.Length; i++)
-				newCells[i] = _cells[i];
-			return true;
+			return false;
 		}
 	}
 }
