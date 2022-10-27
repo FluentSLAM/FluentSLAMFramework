@@ -1,7 +1,7 @@
 ﻿namespace FluentSLAM
 {
-    public interface IPredictionModel<TDataEntry> where TDataEntry : struct
+    public interface IPredictionModel<TPosition, TDataEntry> where TDataEntry : struct
     {
-        public void Apply(IMobileObjectModel mobileObject, TDataEntry data);
+        public void Apply(IMobileObjectModel<TPosition> mobileObject, TDataEntry data);
     }
 }

@@ -5,7 +5,7 @@ public class FluentModel
 {
     protected dynamic CorrectionModel { get; private set; }
     protected dynamic PredictionModel { get; private set; }
-    protected IMobileObjectModel MobileObject { get; private set; }
+    protected dynamic MobileObject { get; private set; }
     protected IMapModel Map { get; private set; }
     
 
@@ -17,8 +17,8 @@ public class FluentModel
         return this;
     }
 
-    public FluentModel SetPredictionModel<TDataEntry>(
-        IPredictionModel<TDataEntry> predictionModel)
+    public FluentModel SetPredictionModel<TPosition, TDataEntry>(
+        IPredictionModel<TPosition, TDataEntry> predictionModel)
         where TDataEntry : struct
     {
         PredictionModel = predictionModel;
@@ -30,8 +30,8 @@ public class FluentModel
         return this;
     }
 
-    public virtual FluentModel Predict<TDataEntry>(
-        IPredictionModel<TDataEntry> model,
+    public virtual FluentModel Predict<TPosition, TDataEntry>(
+        IPredictionModel<TPosition, TDataEntry> model,
         TDataEntry data)
         where TDataEntry : struct
     {
