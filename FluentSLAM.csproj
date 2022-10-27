@@ -14,6 +14,7 @@
     <None Remove="Models\MobileObjectModels\" />
     <None Remove="Misc\" />
     <None Remove="Models\MobileObjectModels\ParticleFilter\" />
+    <None Remove="Misc\ObjectPool\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FluentModel\" />
@@ -22,6 +23,7 @@
     <Folder Include="Models\MobileObjectModels\" />
     <Folder Include="Misc\" />
     <Folder Include="Models\MobileObjectModels\ParticleFilter\" />
+    <Folder Include="Misc\ObjectPool\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GraphX" Version="3.0.0" />
