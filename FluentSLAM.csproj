@@ -14,7 +14,6 @@
     <None Remove="Models\MobileObjectModels\" />
     <None Remove="Misc\" />
     <None Remove="Models\MobileObjectModels\ParticleFilter\" />
-    <None Remove="Models\MobileObjectModels\ParticleFilter\MappingParticle.c" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FluentModel\" />
@@ -28,8 +27,5 @@
     <PackageReference Include="GraphX" Version="3.0.0" />
     <PackageReference Include="NGenerics" Version="1.5.3" />
     <PackageReference Include="quickgraph" Version="3.6.61119.7" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Models\MobileObjectModels\ParticleFilter\MappingParticle.cs" />
   </ItemGroup>
 </Project>
