@@ -1,10 +1,10 @@
 ﻿namespace FluentSLAM.MobileObjectModels
 {
-	public class MobileObject1D<TPoint> : IMobileObjectModel
+	public class MobileObject1D<TPosition> : IMobileObjectModel<TPosition>
 	{
-		protected TPoint Position { get; set; }
+		public TPosition? Position { get; set; }
 
-		public MobileObject1D(TPoint initialPosition)
+		public MobileObject1D(TPosition initialPosition)
 		{
 			Position = initialPosition;
 		}
