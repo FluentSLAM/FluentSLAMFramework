@@ -1,6 +1,9 @@
-﻿namespace FluentSLAM.MapModels
+﻿using System.Numerics;
+
+namespace FluentSLAM.MapModels
 {
 	public class MarginGrid1D<TCell> : Grid1D<TCell>
+		where TCell : INumber<TCell>
 	{
 		public int Margin { get; private set; }
 
