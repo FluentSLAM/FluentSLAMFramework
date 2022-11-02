@@ -11,6 +11,11 @@ namespace FluentSLAM.Misc.ObjectPool
         public int Count => this._container.Count; 
 
 
+        public Pool()
+        {
+            _objectCreator = new DefaultObjectCreator<T>();
+        }
+
         public Pool(IPoolObjectCreator<T> creator)
         {
             if (creator == null)
