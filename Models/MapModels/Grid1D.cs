@@ -31,15 +31,16 @@ namespace FluentSLAM.MapModels
 			_cells = new TCell[size];
 		}
 
-		public TCell Average()
-		{
-			var average = TCell.CreateChecked(0);
+        public TCell Sum()
+        {
+            var sum = TCell.CreateChecked(0);
 
-			foreach (var cell in _cells)
-				average += cell;
+            foreach (var cell in _cells)
+                sum += cell;
+            return sum;
+        }
 
-			return average /= TCell.CreateChecked(_cells.Length);
-		}
+        public TCell Average() => this.Sum() / TCell.CreateChecked(_cells.Length);
 
 		public void Normalize()
 		{
