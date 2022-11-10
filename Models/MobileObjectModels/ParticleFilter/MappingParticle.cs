@@ -1,4 +1,4 @@
-﻿namespace FluentSLAM.Models.MobileObjectModels.ParticleFilter
+﻿namespace FluentSLAM.MobileObjectModels.ParticleFilter
 {
 	public class MappingParticle<TPosition, TMap> : Particle<TPosition>
 		where TMap : IMapModel, new()

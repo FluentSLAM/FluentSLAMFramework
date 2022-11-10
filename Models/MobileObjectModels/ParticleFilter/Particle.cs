@@ -1,8 +1,8 @@
 ﻿using FluentSLAM.Misc.ObjectPool;
 
-namespace FluentSLAM.Models.MobileObjectModels.ParticleFilter
+namespace FluentSLAM.MobileObjectModels.ParticleFilter
 {
-	public class Particle<TPosition> : IMobileObjectModel<TPosition>, IPoolable
+	public class Particle<TPosition> : IParticle<TPosition>, IPoolable
 	{
         public TPosition? Position { get; set; }
 
