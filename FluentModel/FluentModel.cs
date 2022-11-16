@@ -39,7 +39,7 @@ public class FluentModel
         return this;
     }
 
-    public FluentModel Predict<TDataEntry>(TDataEntry data)
+    public FluentModel Predict<TPosition, TDataEntry>(TDataEntry data)
         where TDataEntry : struct
         => Predict(PredictionModel, data);
 
@@ -55,4 +55,20 @@ public class FluentModel
     public FluentModel Correct<TDataEntry>(TDataEntry data)
         where TDataEntry : struct
         => Correct(CorrectionModel, data);
+
+    public virtual FluentModel Correct<TDataEntry, TPosition>(
+        ICorrectionModel<TDataEntry, TPosition> model,
+        TDataEntry data,
+        IMobileObjectModel<TPosition> mobileObject)
+        where TDataEntry : struct
+    {
+        model.Apply(Map, data, mobileObject);
+        return this;
+    }
+
+    public FluentModel Correct<TDataEntry, TPosition>(
+        TDataEntry data,
+        IMobileObjectModel<TPosition> mobileObject)
+        where TDataEntry : struct
+        => Correct(CorrectionModel, data, mobileObject);
 }
