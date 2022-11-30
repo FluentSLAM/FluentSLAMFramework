@@ -1,6 +1,11 @@
 ﻿namespace FluentSLAM
 {
-    public interface IMobileObjectModel<TPosition>
+    public interface IMobileObjectModel
+    {
+
+    }
+
+    public interface IMobileObjectModel<TPosition> : IMobileObjectModel
     {
         public TPosition? Position { get; set; }
     }

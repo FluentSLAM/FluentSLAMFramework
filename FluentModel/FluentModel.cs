@@ -1,8 +1,8 @@
 ﻿namespace FluentSLAM;
 
 
-public class FluentModel<TMobileObject, TMap, TPosition>
-    where TMobileObject : IMobileObjectModel<TPosition>
+public class FluentModel<TMobileObject, TMap>
+    where TMobileObject : IMobileObjectModel
     where TMap : IMapModel
 {
     protected dynamic MotionModel { get; private set; }
@@ -12,8 +12,8 @@ public class FluentModel<TMobileObject, TMap, TPosition>
 
     #region BaseMethods
 
-    public FluentModel<TMobileObject, TMap, TPosition> SetMotionModel<TDataEntry>(
-        IMotionModel<TMobileObject, TPosition, TDataEntry> motionModel)
+    public FluentModel<TMobileObject, TMap> SetMotionModel<TDataEntry>(
+        IMotionModel<TMobileObject, TDataEntry> motionModel)
         where TDataEntry : struct
     {
         MotionModel = motionModel;
@@ -21,7 +21,7 @@ public class FluentModel<TMobileObject, TMap, TPosition>
     }
 
 
-    public FluentModel<TMobileObject, TMap, TPosition> SetObservationModel<TDataEntry>(
+    public FluentModel<TMobileObject, TMap> SetObservationModel<TDataEntry>(
         IObservationModel<IMapModel, TDataEntry> observationModel)
         where TDataEntry : struct
     {
@@ -30,21 +30,21 @@ public class FluentModel<TMobileObject, TMap, TPosition>
     }
 
 
-    public FluentModel<TMobileObject, TMap, TPosition> UpdateMotionModel<TMotionModel, TDataEntry>(
+    public FluentModel<TMobileObject, TMap> UpdateMotionModel<TMotionModel, TDataEntry>(
         TMotionModel model,
         TDataEntry data)
-        where TMotionModel : IMotionModel<TMobileObject, TPosition, TDataEntry>
+        where TMotionModel : IMotionModel<TMobileObject, TDataEntry>
         where TDataEntry : struct
     {
         ApplyMotionModel<TMotionModel, TDataEntry>(model, data);
         return this;
     }
 
-    public FluentModel<TMobileObject, TMap, TPosition> UpdateMotionModel<TDataEntry>(TDataEntry data)
+    public FluentModel<TMobileObject, TMap> UpdateMotionModel<TDataEntry>(TDataEntry data)
         where TDataEntry : struct
         => UpdateMotionModel(MotionModel, data);
 
-    public FluentModel<TMobileObject, TMap, TPosition> UpdateObservationModel<TObservationModel, TDataEntry>(
+    public FluentModel<TMobileObject, TMap> UpdateObservationModel<TObservationModel, TDataEntry>(
         TObservationModel model,
         TDataEntry data)
         where TObservationModel : IObservationModel<TMap, TDataEntry>
@@ -54,7 +54,7 @@ public class FluentModel<TMobileObject, TMap, TPosition>
         return this;
     }
 
-    public FluentModel<TMobileObject, TMap, TPosition> UpdateObservationModel<TDataEntry>(TDataEntry data)
+    public FluentModel<TMobileObject, TMap> UpdateObservationModel<TDataEntry>(TDataEntry data)
         where TDataEntry : struct
         => UpdateObservationModel(ObservationModel, data);
     #endregion
@@ -63,7 +63,7 @@ public class FluentModel<TMobileObject, TMap, TPosition>
     protected virtual void ApplyMotionModel<TMotionModel, TDataEntry>(
         TMotionModel model,
         TDataEntry data)
-        where TMotionModel : IMotionModel<TMobileObject, TPosition, TDataEntry>
+        where TMotionModel : IMotionModel<TMobileObject, TDataEntry>
         where TDataEntry : struct
     => model.Apply(MobileObject, data);
 
