@@ -19,7 +19,7 @@ namespace FluentSLAM.Misc.ObjectPool
         public Pool(IPoolObjectCreator<T> creator)
         {
             if (creator == null)
-                throw new ArgumentNullException("creator can't be null");
+                throw new ArgumentNullException(nameof(creator));
             this._objectCreator = creator;
 		}
 
