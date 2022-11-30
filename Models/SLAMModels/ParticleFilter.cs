@@ -1,9 +1,8 @@
-﻿using System;
-using FluentSLAM.MobileObjectModels.ParticleFilter;
+﻿using FluentSLAM.MobileObjectModels.ParticleFilter;
 
 namespace FluentSLAM.Models.SLAMModel
 {
-	public class ParticleFilter<TParticle, TPosition, TMap> : FluentModel<IParticle<TPosition>, TMap, TPosition>
+	public class ParticleFilter<TParticle, TPosition, TMap> : FluentModel<IParticle<TPosition>, TMap>
         where TParticle : IParticle<TPosition>
         where TMap : IMapModel
 	{
@@ -11,8 +10,13 @@ namespace FluentSLAM.Models.SLAMModel
 
         public ParticleFilter()
 		{
-
+            InitializeParticles();
 		}
+
+        private void InitializeParticles()
+        {
+            throw new NotImplementedException();
+        }
 
         protected override void ApplyMotionModel<TMotionModel, TDataEntry>(
             TMotionModel model,
@@ -28,7 +32,6 @@ namespace FluentSLAM.Models.SLAMModel
         {
             model.Apply(Map, data);
             RecalculateWeights();
-            Resample();
         }
 
         protected virtual void RecalculateWeights()
@@ -36,7 +39,7 @@ namespace FluentSLAM.Models.SLAMModel
             throw new NotImplementedException();
         }
 
-        public virtual void Resample()
+        public virtual ParticleFilter<TParticle, TPosition, TMap> Resample()
         {
             throw new NotImplementedException();
         }
