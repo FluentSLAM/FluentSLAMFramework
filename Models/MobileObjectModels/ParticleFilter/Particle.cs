@@ -2,7 +2,7 @@
 
 namespace FluentSLAM.MobileObjectModels.ParticleFilter
 {
-	public class Particle<TPosition> : IParticle<TPosition>, IPoolable
+	public class Particle<TPosition> : IParticle, IMobileObjectModel<TPosition>, IPoolable
 	{
         public TPosition? Position { get; set; }
 

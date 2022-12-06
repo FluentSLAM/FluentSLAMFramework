@@ -1,7 +1,7 @@
 ﻿namespace FluentSLAM.MobileObjectModels.ParticleFilter
 {
-	public interface IParticle<TPosition> : IMobileObjectModel<TPosition>
-	{
+	public interface IParticle
+	{ 
 		public double Weight { get; }
 	}
 }
