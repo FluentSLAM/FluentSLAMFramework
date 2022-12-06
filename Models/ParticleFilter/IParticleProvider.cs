@@ -1,4 +1,4 @@
-﻿namespace FluentSLAM.MobileObjectModels.ParticleFilter
+﻿namespace FluentSLAM.ParticleFilter
 {
 	public interface IParticleProvider<TParticle> where TParticle : IParticle
     {
