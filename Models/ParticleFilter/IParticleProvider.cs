@@ -2,7 +2,7 @@
 {
 	public interface IParticleProvider<TParticle> where TParticle : IParticle
     {
-		public IParticle GetParticle();
+		public TParticle GetParticle();
 	}
 }
 
