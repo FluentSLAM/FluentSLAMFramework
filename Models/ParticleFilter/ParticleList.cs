@@ -19,7 +19,7 @@
             InitParticles(number);
         }
 
-        private void InitParticles(int number)
+        public void InitParticles(int number)
         {
             Particles = new List<TParticle>(number);
 
