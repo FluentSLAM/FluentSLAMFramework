@@ -14,6 +14,8 @@
             foreach (var particle in Particles)
                 particle.Weight /= sum;
         }
+
+        public void InitParticles(int number);
     }
 }
 
