@@ -4,10 +4,12 @@
         where TParticle : IParticle, IMobileObjectModel
         where TDataEntry : struct
     {
-        public void Apply(IParticleCollection<TParticle> set, TDataEntry data)
+        public void Apply(IParticleCollection<TParticle> collection, TDataEntry data)
         {
-            foreach (var particle in set.Particles)
+            Parallel.ForEach(collection.Particles, particle =>
+            {
                 ApplyToParticle(particle, data);
+            });
         }
 
         public virtual void ApplyToParticle(TParticle particle, TDataEntry data)
