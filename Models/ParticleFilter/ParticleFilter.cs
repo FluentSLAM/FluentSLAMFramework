@@ -15,7 +15,6 @@ namespace FluentSLAM
             IMotionModel<IParticleCollection<TParticle>, TDataEntry> model,
             TDataEntry data)
         {
-            // TODO: parallel computing
             model.Apply(MobileObject, data);
         }
 
