@@ -2,7 +2,6 @@
 {
     public interface IMobileObjectModel
     {
-
     }
 
     public interface IMobileObjectModel<TPosition> : IMobileObjectModel

@@ -1,8 +1,7 @@
 ﻿namespace FluentSLAM.Misc.ObjectPool
 {
-	public interface IPoolObjectCreator<T>
-	{
+    public interface IPoolObjectCreator<T>
+    {
         T Create();
     }
 }
-

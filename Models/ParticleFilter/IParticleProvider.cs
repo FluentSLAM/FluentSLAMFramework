@@ -1,8 +1,7 @@
 ﻿namespace FluentSLAM.ParticleFilter
 {
-	public interface IParticleProvider<TParticle> where TParticle : IParticle
+    public interface IParticleProvider<TParticle> where TParticle : IParticle
     {
-		public TParticle GetParticle();
-	}
+        public TParticle GetParticle();
+    }
 }
-

@@ -1,6 +1,5 @@
 ﻿namespace FluentSLAM;
 
-
 public class FluentModel<TMobileObject, TMap>
     where TMobileObject : IMobileObjectModel
     where TMap : IMapModel
@@ -15,6 +14,7 @@ public class FluentModel<TMobileObject, TMap>
     }
 
     #region BaseMethods
+
     public FluentModel<TMobileObject, TMap> UpdateMotionModel<TDataEntry>(
         IMotionModel<TMobileObject, TDataEntry> model,
         TDataEntry data)
@@ -32,19 +32,22 @@ public class FluentModel<TMobileObject, TMap>
         ApplyObservationModel<TDataEntry>(model, data);
         return this;
     }
+
     #endregion
 
     #region VirtualMethods
+
     protected virtual void ApplyMotionModel<TDataEntry>(
         IMotionModel<TMobileObject, TDataEntry> model,
         TDataEntry data)
         where TDataEntry : struct
-    => model.Apply(MobileObject, data);
+        => model.Apply(MobileObject, data);
 
     protected virtual void ApplyObservationModel<TDataEntry>(
         IObservationModel<TMap, TDataEntry> model,
         TDataEntry data)
         where TDataEntry : struct
-    => model.Apply(Map, data);
+        => model.Apply(Map, data);
+
     #endregion
 }

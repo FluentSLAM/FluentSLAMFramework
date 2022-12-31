@@ -2,11 +2,12 @@
 
 namespace FluentSLAM
 {
-	public class ParticleFilter<TParticle, TMap> : FluentModel<IParticleCollection<TParticle>, TMap>
+    public class ParticleFilter<TParticle, TMap> : FluentModel<IParticleCollection<TParticle>, TMap>
         where TParticle : IParticle, IMobileObjectModel, new()
         where TMap : IMapModel
-	{
-        public ParticleFilter(IParticleCollection<TParticle> mobileObject, TMap map, int number) : base(mobileObject, map)
+    {
+        public ParticleFilter(IParticleCollection<TParticle> mobileObject, TMap map, int number) : base(mobileObject,
+            map)
         {
             mobileObject.InitParticles(number);
         }
@@ -37,4 +38,3 @@ namespace FluentSLAM
         }
     }
 }
-

@@ -18,4 +18,3 @@
         public void InitParticles(int number);
     }
 }
-

@@ -1,37 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AssemblyName>FluentSLAM</AssemblyName>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>FluentSLAM</AssemblyName>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="FluentModel\" />
-    <None Remove="Models\" />
-    <None Remove="Models\MapModels\" />
-    <None Remove="Models\MobileObjectModels\" />
-    <None Remove="Misc\" />
-    <None Remove="Misc\ObjectPool\" />
-    <None Remove="Models\CorrectionModels\DataEntries\" />
-    <None Remove="Models\MotionModels\" />
-    <None Remove="Models\ParticleFilter\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FluentModel\" />
-    <Folder Include="Models\" />
-    <Folder Include="Models\MapModels\" />
-    <Folder Include="Models\MobileObjectModels\" />
-    <Folder Include="Misc\" />
-    <Folder Include="Misc\ObjectPool\" />
-    <Folder Include="Models\ObservationModels\DataEntries\" />
-    <Folder Include="Models\MotionModels\" />
-    <Folder Include="Models\ParticleFilter\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="GraphX" Version="3.0.0" />
-    <PackageReference Include="NGenerics" Version="1.5.3" />
-    <PackageReference Include="quickgraph" Version="3.6.61119.7" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="FluentModel\"/>
+        <None Remove="Models\"/>
+        <None Remove="Models\MapModels\"/>
+        <None Remove="Models\MobileObjectModels\"/>
+        <None Remove="Misc\"/>
+        <None Remove="Misc\ObjectPool\"/>
+        <None Remove="Models\CorrectionModels\DataEntries\"/>
+        <None Remove="Models\MotionModels\"/>
+        <None Remove="Models\ParticleFilter\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="FluentModel\"/>
+        <Folder Include="Models\"/>
+        <Folder Include="Models\MapModels\"/>
+        <Folder Include="Models\MobileObjectModels\"/>
+        <Folder Include="Misc\"/>
+        <Folder Include="Misc\ObjectPool\"/>
+        <Folder Include="Models\ObservationModels\DataEntries\"/>
+        <Folder Include="Models\MotionModels\"/>
+        <Folder Include="Models\ParticleFilter\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="GraphX" Version="3.0.0"/>
+        <PackageReference Include="NGenerics" Version="1.5.3"/>
+        <PackageReference Include="quickgraph" Version="3.6.61119.7"/>
+    </ItemGroup>
 </Project>
